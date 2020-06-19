@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      name: config-eureka  #获取配置文件的名字，不用后缀
+      label: master
+      profile: dev
+      uri: http://localhost:3344   #从哪里获得配置

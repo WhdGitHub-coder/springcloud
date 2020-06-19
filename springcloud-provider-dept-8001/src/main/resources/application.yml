@@ -1,0 +1,30 @@
+server:
+  port: 8001
+mybatis:
+  type-aliases-package: com.kuang.springcloud.pojo
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+spring:
+  application:
+    name: springcloud-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/db01?useUnicode=true&characterEncoding=utf8&useSSL=true&serverTimezone=UTC
+    username: root
+    password: 123456789
+    driver-class-name: com.mysql.jdbc.Driver
+
+#eureka的配置，服务在哪里注册 http://localhost:7001/eureka/这是服务注册的地方
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: springcloud-provider-dept8001 #修改eureka上的默认描述信息
+    prefer-ip-address: true #true访问路径可以显示IP地址
+
+#info配置
+info:
+  app.name: weng-springcloud
+  company.name: www.wenghuang.com
